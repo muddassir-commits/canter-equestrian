@@ -8,7 +8,7 @@ interface SendEmailParams {
 }
 
 export async function sendEmail({ to, subject, html, text }: SendEmailParams) {
-  const recipient = to || process.env.EMAIL_TO || 'theofficialmuddassir@gmail.com';
+  const recipient = to || process.env.EMAIL_TO || 'info@cantercompany.com';
   
   // 1. Try Resend if API key is present
   if (process.env.RESEND_API_KEY) {
