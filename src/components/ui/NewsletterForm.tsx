@@ -28,11 +28,24 @@ export const NewsletterForm: React.FC<NewsletterFormProps> = ({ className }) => 
     setStatus('loading');
 
     try {
-      // Mock network latency
-      await new Promise((resolve) => setTimeout(resolve, 1200));
-      setStatus('success');
-      setMessage('Thank you for subscribing! Welcome to the herd.');
-      setEmail('');
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, source: 'footer' }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setStatus('success');
+        setMessage('Thank you for subscribing! Welcome to the herd.');
+        setEmail('');
+      } else {
+        setStatus('error');
+        setMessage(data.error || 'Something went wrong. Please try again.');
+      }
     } catch (error) {
       setStatus('error');
       setMessage('Something went wrong. Please try again.');

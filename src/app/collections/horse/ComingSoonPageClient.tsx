@@ -59,10 +59,22 @@ export default function ComingSoonPageClient() {
     setError('');
 
     try {
-      // Mock API latency
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      setSubscribed(true);
-      setEmail('');
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, source: 'coming-soon' }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setSubscribed(true);
+        setEmail('');
+      } else {
+        setError(data.error || 'An error occurred. Please try again.');
+      }
     } catch (err) {
       setError('An error occurred. Please try again.');
     } finally {

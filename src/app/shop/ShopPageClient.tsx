@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect, useTransition } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { SlidersHorizontal } from 'lucide-react';
 import { PageTransition } from '@/components/layout/PageTransition';
 import { SectionHeading } from '@/components/ui/SectionHeading';
@@ -11,6 +12,9 @@ import { Product } from '@/types';
 import styles from './page.module.css';
 
 export default function ShopPageClient() {
+  const searchParams = useSearchParams();
+  const categoryParam = searchParams ? searchParams.get('category') : null;
+
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedSize, setSelectedSize] = useState('');
   const [maxPrice, setMaxPrice] = useState(15000);
@@ -18,6 +22,15 @@ export default function ShopPageClient() {
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
+
+  // Sync category from URL query parameters
+  useEffect(() => {
+    if (categoryParam) {
+      setSelectedCategory(categoryParam.toLowerCase());
+    } else {
+      setSelectedCategory('all');
+    }
+  }, [categoryParam]);
 
   useEffect(() => {
     if (mobileFilterOpen) {

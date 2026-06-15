@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import ShopPageClient from './ShopPageClient';
 
@@ -7,5 +8,22 @@ export const metadata: Metadata = {
 };
 
 export default function ShopPage() {
-  return <ShopPageClient />;
+  return (
+    <Suspense fallback={
+      <div style={{ 
+        padding: '120px 0', 
+        textAlign: 'center', 
+        backgroundColor: '#F8F4ED', 
+        color: '#1B3A4B', 
+        minHeight: '100vh', 
+        fontFamily: 'sans-serif',
+        fontSize: '18px',
+        fontWeight: 'bold'
+      }}>
+        Loading collection...
+      </div>
+    }>
+      <ShopPageClient />
+    </Suspense>
+  );
 }
