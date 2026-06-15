@@ -1,0 +1,94 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-12);
+  position: relative;
+}
+
+.left {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.center {
+  align-items: center;
+  text-align: center;
+}
+
+.right {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.eyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-gold-dark);
+  margin-bottom: var(--space-2);
+}
+
+.lightEyebrow {
+  color: var(--color-gold-light);
+}
+
+.title {
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+  font-size: var(--text-3xl);
+  letter-spacing: -0.02em;
+}
+
+.darkTitle {
+  color: var(--color-navy-dark);
+}
+
+.lightTitle {
+  color: var(--color-cream);
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.darkSubtitle {
+  color: var(--color-text-muted);
+}
+
+.lightSubtitle {
+  color: rgba(248, 244, 237, 0.7);
+}
+
+.divider {
+  width: 60px;
+  height: 3px;
+  border-radius: var(--radius-full);
+  margin-top: var(--space-4);
+}
+
+.darkDivider {
+  background-color: var(--color-gold);
+}
+
+.lightDivider {
+  background-color: var(--color-gold-light);
+}
+
+.left .divider {
+  margin-left: 0;
+}
+
+.right .divider {
+  margin-right: 0;
+}
+
+.center .divider {
+  margin-left: auto;
+  margin-right: auto;
+}

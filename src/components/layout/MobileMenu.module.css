@@ -1,0 +1,140 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(27, 58, 75, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: calc(var(--z-overlay) - 1);
+}
+
+.menuPanel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 400px;
+  height: 100vh;
+  background-color: var(--color-cream);
+  border-left: 1px solid var(--color-cream-dark);
+  box-shadow: var(--shadow-elevated);
+  z-index: var(--z-overlay);
+  padding: 120px var(--space-8) var(--space-8) var(--space-8); /* Padding-top to avoid header */
+}
+
+@media (max-width: 480px) {
+  .menuPanel {
+    max-width: 100%;
+    padding-top: 90px;
+  }
+}
+
+.menuInner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.nav {
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.nav::-webkit-scrollbar {
+  display: none;
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.navItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.navLink {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: var(--color-navy-dark);
+  transition: color var(--transition-fast);
+}
+
+.navLink:hover {
+  color: var(--color-gold-dark);
+}
+
+.activeLink {
+  color: var(--color-gold-dark);
+}
+
+/* --- Dropdown category style in mobile --- */
+.categoryTitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--color-navy);
+  margin-bottom: var(--space-2);
+}
+
+.subList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-left: var(--space-4);
+  border-left: 1px solid var(--color-cream-dark);
+  margin-top: var(--space-2);
+}
+
+.subLink {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+  padding: var(--space-1) 0;
+  display: block;
+}
+
+.subLink:hover {
+  color: var(--color-navy-dark);
+}
+
+.activeSubLink {
+  color: var(--color-gold-dark);
+  font-weight: 600;
+}
+
+/* --- Footer info in mobile --- */
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  border-top: 1px solid var(--color-cream-dark);
+  padding-top: var(--space-6);
+  margin-top: var(--space-6);
+}
+
+.tagline {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-style: italic;
+  color: var(--color-navy);
+}
+
+.email {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+}
+
+.email:hover {
+  color: var(--color-gold-dark);
+}

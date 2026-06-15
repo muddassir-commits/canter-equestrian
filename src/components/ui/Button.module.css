@@ -1,0 +1,114 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-base);
+  gap: var(--space-2);
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.button:active {
+  transform: scale(0.97);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* --- Sizes --- */
+.sm {
+  padding: 0.5rem 1rem;
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.md {
+  padding: 0.75rem 1.75rem;
+  font-size: var(--text-sm);
+  letter-spacing: 0.03em;
+}
+
+.lg {
+  padding: 1rem 2.5rem;
+  font-size: var(--text-base);
+  letter-spacing: 0.02em;
+}
+
+/* --- Variants --- */
+.primary {
+  background-color: var(--color-navy);
+  color: var(--color-cream);
+  border: 1px solid var(--color-navy);
+}
+
+.primary:hover {
+  background-color: var(--color-navy-light);
+  border-color: var(--color-navy-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.accent {
+  background-color: var(--color-gold);
+  color: var(--color-navy-dark);
+  border: 1px solid var(--color-gold);
+  box-shadow: var(--shadow-sm);
+}
+
+.accent:hover {
+  background-color: var(--color-gold-light);
+  border-color: var(--color-gold-light);
+  box-shadow: var(--shadow-gold);
+}
+
+.outline {
+  background-color: transparent;
+  color: var(--color-navy);
+  border: 2px solid var(--color-navy);
+}
+
+.outline:hover {
+  background-color: var(--color-navy);
+  color: var(--color-cream);
+}
+
+.outline-light {
+  background-color: transparent;
+  color: var(--color-cream);
+  border: 2px solid var(--color-cream);
+}
+
+.outline-light:hover {
+  background-color: var(--color-cream);
+  color: var(--color-navy-dark);
+}
+
+.text {
+  background-color: transparent;
+  color: var(--color-navy);
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  border-bottom: 2px solid transparent;
+}
+
+.text:hover {
+  color: var(--color-gold-dark);
+  border-bottom-color: var(--color-gold-dark);
+}
+
+.text:active {
+  transform: none;
+}

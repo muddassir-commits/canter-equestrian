@@ -1,0 +1,303 @@
+.pageOffset {
+  padding-top: calc(var(--nav-height) + var(--space-2));
+  background-color: var(--color-cream);
+}
+
+@media (max-width: 1024px) {
+  .pageOffset {
+    padding-top: var(--nav-height-mobile);
+  }
+}
+
+/* --- Hero Section --- */
+.heroBanner {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-white);
+  overflow: hidden;
+}
+
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/hero/hero-shop.png');
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 37, 51, 0.82);
+  z-index: 2;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 3;
+  max-width: 700px;
+  padding: 0 var(--space-4);
+}
+
+.heroTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+}
+
+.heroSubtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: rgba(248, 244, 237, 0.85);
+  margin: 0;
+}
+
+/* --- Shipping Table Section --- */
+.zonesSection {
+  padding: var(--space-20) 0;
+  background-color: var(--color-white);
+}
+
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-cream-dark);
+  box-shadow: var(--shadow-sm);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+}
+
+.table th {
+  background-color: var(--color-navy-dark);
+  color: var(--color-gold);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  padding: var(--space-4) var(--space-6);
+  white-space: nowrap;
+}
+
+.table td {
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid var(--color-cream-dark);
+  color: var(--color-text);
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table tr:nth-child(even) {
+  background-color: rgba(248, 244, 237, 0.3);
+}
+
+.zoneName {
+  font-weight: 700;
+  color: var(--color-navy-dark);
+}
+
+.priceCell {
+  font-weight: 700;
+  color: var(--color-navy-dark);
+}
+
+.thresholdCell {
+  color: var(--color-success) !important;
+  font-weight: 600;
+}
+
+/* --- Steps Grid Section --- */
+.trackingSection {
+  padding: var(--space-20) 0;
+  background-color: var(--color-cream);
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+  margin-top: var(--space-6);
+}
+
+@media (max-width: 768px) {
+  .stepsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+}
+
+.stepCard {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-cream-dark);
+  border-radius: var(--radius-md);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.stepCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+.stepIconWrapper {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-full);
+  background-color: rgba(27, 58, 75, 0.05);
+  color: var(--color-navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+  border: 1px solid rgba(27, 58, 75, 0.1);
+}
+
+.stepTitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-navy-dark);
+  margin-bottom: var(--space-2);
+}
+
+.stepDesc {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --- Returns & Guarantee Section --- */
+.returnsSection {
+  padding: var(--space-20) 0;
+  background-color: var(--color-white);
+}
+
+.returnsGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .returnsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+}
+
+.returnsText {
+  display: flex;
+  flex-direction: column;
+}
+
+.returnsHeading {
+  margin-bottom: var(--space-4) !important;
+}
+
+.paragraph {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  line-height: 1.7;
+  margin-bottom: var(--space-4);
+}
+
+.paragraph:last-of-type {
+  margin-bottom: 0;
+}
+
+.policyCard {
+  background-color: var(--color-cream);
+  border: 1px solid var(--color-cream-dark);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-sm);
+}
+
+.policyHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+  border-bottom: 1px solid var(--color-cream-dark);
+  padding-bottom: var(--space-3);
+}
+
+.policyIcon {
+  color: var(--color-gold-dark);
+}
+
+.policyTitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--color-navy-dark);
+  margin: 0;
+}
+
+.policySteps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-left: var(--space-4);
+  list-style: decimal;
+}
+
+.policySteps li {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* --- Shipping FAQs Section --- */
+.faqSection {
+  padding: var(--space-20) 0;
+  background-color: var(--color-cream);
+}
+
+.accordionWrapper {
+  max-width: 850px;
+  margin: 0 auto var(--space-12) auto;
+}
+
+.supportCta {
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
