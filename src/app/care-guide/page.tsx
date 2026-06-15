@@ -147,7 +147,15 @@ export default function CareGuidePage() {
         
         {/* Hero Header */}
         <div className={styles.heroBanner}>
-          <div className={styles.heroBackground} />
+          <Image
+            src="/images/blog/leather-care.png"
+            alt="Handcrafted leather care guide background"
+            fill
+            priority
+            quality={80}
+            sizes="100vw"
+            className={styles.heroBackgroundImage}
+          />
           <div className={styles.heroOverlay} />
           <div className={styles.heroContent}>
             <h1 className={styles.heroTitle}>Product Care Guide</h1>

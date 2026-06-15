@@ -62,7 +62,15 @@ export default function AboutPageClient() {
         
         {/* Section 4.1: Hero */}
         <div className={styles.heroBanner}>
-          <div className={styles.heroBackground} />
+          <Image
+            src="/images/about/hero.png"
+            alt="Handcrafted leather craftsmanship"
+            fill
+            priority
+            quality={80}
+            sizes="100vw"
+            className={styles.heroBackgroundImage}
+          />
           <div className={styles.heroOverlay} />
           <div className={styles.heroContent}>
             <span className={styles.heroEyebrow}>Our Story</span>
@@ -178,7 +186,14 @@ export default function AboutPageClient() {
 
         {/* Section 4.6: CTA */}
         <section className={styles.ctaSection}>
-          <div className={styles.ctaBackground} />
+          <Image
+            src="/images/about/hero.png"
+            alt="Equestrian stable scenery"
+            fill
+            quality={80}
+            sizes="100vw"
+            className={styles.ctaBackgroundImage}
+          />
           <div className={styles.ctaOverlay} />
           <div className={cn('container', styles.ctaContainer)}>
             <h2 className={styles.ctaTitle}>Ready to Feel the Difference?</h2>

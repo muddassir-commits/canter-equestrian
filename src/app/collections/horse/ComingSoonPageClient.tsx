@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Mail, Check, Bell, ArrowRight } from 'lucide-react';
 import { PageTransition } from '@/components/layout/PageTransition';
 import { Button } from '@/components/ui/Button';
@@ -85,7 +86,15 @@ export default function ComingSoonPageClient() {
     <PageTransition>
       <div className={styles.wrapper}>
         {/* Background Image with Dark Mask */}
-        <div className={styles.background} />
+        <Image
+          src="/images/hero/coming-soon.png"
+          alt="Majestic horse silhouette at sunset"
+          fill
+          priority
+          quality={80}
+          sizes="100vw"
+          className={styles.backgroundImage}
+        />
         <div className={styles.overlay} />
 
         <div className={cn('container', styles.container)}>

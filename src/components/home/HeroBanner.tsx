@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 import { Button } from '../ui/Button';
@@ -40,7 +41,15 @@ export const HeroBanner: React.FC = () => {
   return (
     <section className={styles.hero}>
       {/* Background Image Container with Gradient Overlay */}
-      <div className={styles.background} />
+      <Image
+        src="/images/hero/hero-main.png"
+        alt="Majestic horse wearing premium leather bridle"
+        fill
+        priority
+        quality={85}
+        sizes="100vw"
+        className={styles.backgroundImage}
+      />
       <div className={styles.overlay} />
 
       <div className="container">

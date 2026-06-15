@@ -41,7 +41,15 @@ export default function BlogListingPageClient() {
         
         {/* Page Header */}
         <div className={styles.heroBanner}>
-          <div className={styles.heroBackground} />
+          <Image
+            src="/images/blog/workshop-journey.png"
+            alt="Handcrafted leather workshop journey"
+            fill
+            priority
+            quality={80}
+            sizes="100vw"
+            className={styles.heroBackgroundImage}
+          />
           <div className={styles.heroOverlay} />
           <div className={styles.heroContent}>
             <h1 className={styles.heroTitle}>The Canter Journal</h1>

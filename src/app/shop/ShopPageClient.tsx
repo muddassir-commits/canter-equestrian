@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect, useTransition } from 'react';
+import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 import { SlidersHorizontal } from 'lucide-react';
 import { PageTransition } from '@/components/layout/PageTransition';
@@ -107,7 +108,15 @@ export default function ShopPageClient() {
     <PageTransition>
       {/* Page Header Hero Banner */}
       <div className={styles.heroBanner}>
-        <div className={styles.heroBackground} />
+        <Image
+          src="/images/hero/hero-shop.png"
+          alt="Premium handcrafted leather gear catalog"
+          fill
+          priority
+          quality={80}
+          sizes="100vw"
+          className={styles.heroBackgroundImage}
+        />
         <div className={styles.heroOverlay} />
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>Shop Our Tack</h1>

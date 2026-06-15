@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Truck, Gift, ClipboardCheck, CornerDownLeft } from 'lucide-react';
 import { PageTransition } from '@/components/layout/PageTransition';
 import { SectionHeading } from '@/components/ui/SectionHeading';
@@ -20,7 +21,15 @@ export default function ShippingPage() {
         
         {/* Hero Header */}
         <div className={styles.heroBanner}>
-          <div className={styles.heroBackground} />
+          <Image
+            src="/images/hero/hero-shop.png"
+            alt="Insured shipping and worldwide logistics"
+            fill
+            priority
+            quality={80}
+            sizes="100vw"
+            className={styles.heroBackgroundImage}
+          />
           <div className={styles.heroOverlay} />
           <div className={styles.heroContent}>
             <h1 className={styles.heroTitle}>Shipping & Delivery</h1>
