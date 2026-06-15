@@ -59,7 +59,7 @@ export default function ComingSoonPageClient() {
     setError('');
 
     try {
-      const response = await fetch('/api/newsletter', {
+      const res = await fetch('/api/subscribe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -67,16 +67,15 @@ export default function ComingSoonPageClient() {
         body: JSON.stringify({ email, source: 'coming-soon' }),
       });
 
-      const data = await response.json();
-
-      if (response.ok && data.success) {
+      if (res.ok) {
         setSubscribed(true);
         setEmail('');
       } else {
-        setError(data.error || 'An error occurred. Please try again.');
+        const data = await res.json();
+        throw new Error(data.error || 'Subscription failed');
       }
-    } catch (err) {
-      setError('An error occurred. Please try again.');
+    } catch (err: any) {
+      setError(err.message || 'An error occurred. Please try again.');
     } finally {
       setLoading(false);
     }

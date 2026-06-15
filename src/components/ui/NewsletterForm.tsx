@@ -28,27 +28,25 @@ export const NewsletterForm: React.FC<NewsletterFormProps> = ({ className }) => 
     setStatus('loading');
 
     try {
-      const response = await fetch('/api/newsletter', {
+      const res = await fetch('/api/subscribe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, source: 'footer' }),
+        body: JSON.stringify({ email, source: 'newsletter' }),
       });
 
-      const data = await response.json();
-
-      if (response.ok && data.success) {
+      if (res.ok) {
         setStatus('success');
         setMessage('Thank you for subscribing! Welcome to the herd.');
         setEmail('');
       } else {
-        setStatus('error');
-        setMessage(data.error || 'Something went wrong. Please try again.');
+        const data = await res.json();
+        throw new Error(data.error || 'Subscription failed');
       }
-    } catch (error) {
+    } catch (error: any) {
       setStatus('error');
-      setMessage('Something went wrong. Please try again.');
+      setMessage(error.message || 'Something went wrong. Please try again.');
     }
   };
 

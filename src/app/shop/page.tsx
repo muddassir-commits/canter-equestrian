@@ -1,5 +1,5 @@
-import { Suspense } from 'react';
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import ShopPageClient from './ShopPageClient';
 
 export const metadata: Metadata = {
@@ -9,20 +9,7 @@ export const metadata: Metadata = {
 
 export default function ShopPage() {
   return (
-    <Suspense fallback={
-      <div style={{ 
-        padding: '120px 0', 
-        textAlign: 'center', 
-        backgroundColor: '#F8F4ED', 
-        color: '#1B3A4B', 
-        minHeight: '100vh', 
-        fontFamily: 'sans-serif',
-        fontSize: '18px',
-        fontWeight: 'bold'
-      }}>
-        Loading collection...
-      </div>
-    }>
+    <Suspense fallback={<div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#F8F4ED', fontFamily: 'var(--font-heading)', color: '#1B3A4B' }}>Loading Shop...</div>}>
       <ShopPageClient />
     </Suspense>
   );

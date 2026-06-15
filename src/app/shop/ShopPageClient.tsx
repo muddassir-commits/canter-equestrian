@@ -12,9 +12,6 @@ import { Product } from '@/types';
 import styles from './page.module.css';
 
 export default function ShopPageClient() {
-  const searchParams = useSearchParams();
-  const categoryParam = searchParams ? searchParams.get('category') : null;
-
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedSize, setSelectedSize] = useState('');
   const [maxPrice, setMaxPrice] = useState(15000);
@@ -23,12 +20,12 @@ export default function ShopPageClient() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
 
-  // Sync category from URL query parameters
+  const searchParams = useSearchParams();
+  const categoryParam = searchParams.get('category');
+
   useEffect(() => {
     if (categoryParam) {
       setSelectedCategory(categoryParam.toLowerCase());
-    } else {
-      setSelectedCategory('all');
     }
   }, [categoryParam]);
 

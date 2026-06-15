@@ -8,7 +8,7 @@ interface SendEmailParams {
 }
 
 export async function sendEmail({ to, subject, html, text }: SendEmailParams) {
-  const recipient = to || process.env.EMAIL_TO || 'muhammadshadabhasan@gmail.com';
+  const recipient = to || process.env.EMAIL_TO || 'theofficialmuddassir@gmail.com';
   
   // 1. Try Resend if API key is present
   if (process.env.RESEND_API_KEY) {
@@ -75,33 +75,7 @@ export async function sendEmail({ to, subject, html, text }: SendEmailParams) {
     }
   }
 
-  // 3. Fallback to FormSubmit.co API so they get real emails even without Resend or SMTP configured!
-  try {
-    console.log(`Forwarding email via FormSubmit.co to ${recipient}...`);
-    const res = await fetch(`https://formsubmit.co/ajax/${recipient}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-      },
-      body: JSON.stringify({
-        subject: subject,
-        message: text || html.replace(/<[^>]*>/g, ''),
-        _honey: '', // honeypot field
-      }),
-    });
-    if (res.ok) {
-      console.log('Email forwarded successfully via FormSubmit.co!');
-      return { success: true, provider: 'formsubmit' };
-    } else {
-      const errText = await res.text();
-      console.error('FormSubmit API returned error status:', res.status, errText);
-    }
-  } catch (err) {
-    console.error('Failed to forward email via FormSubmit.co:', err);
-  }
-
-  // 4. Ultimate Mock Fallback
+  // 3. Fallback mock success if no provider is configured
   console.log('--- Mock Email Log ---');
   console.log(`To: ${recipient}`);
   console.log(`Subject: ${subject}`);
