@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useTransition } from 'react';
+import React, { useState, useEffect, useTransition } from 'react';
 import { SlidersHorizontal } from 'lucide-react';
 import { PageTransition } from '@/components/layout/PageTransition';
 import { SectionHeading } from '@/components/ui/SectionHeading';
@@ -18,6 +18,17 @@ export default function ShopPageClient() {
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
+
+  useEffect(() => {
+    if (mobileFilterOpen) {
+      document.body.classList.add('lock-scroll');
+    } else {
+      document.body.classList.remove('lock-scroll');
+    }
+    return () => {
+      document.body.classList.remove('lock-scroll');
+    };
+  }, [mobileFilterOpen]);
 
   const handleSelectCategory = (cat: string) => {
     setSelectedCategory(cat);
@@ -141,6 +152,14 @@ export default function ShopPageClient() {
               isOpen={mobileFilterOpen}
               onClose={() => setMobileFilterOpen(false)}
             />
+
+            {/* Mobile Filter Backdrop Overlay */}
+            {mobileFilterOpen && (
+              <div
+                className={styles.filterBackdrop}
+                onClick={() => setMobileFilterOpen(false)}
+              />
+            )}
 
             {/* Product Grid Area */}
             <div className={styles.gridWrapper}>

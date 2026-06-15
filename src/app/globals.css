@@ -292,3 +292,10 @@ button {
     scroll-behavior: auto !important;
   }
 }
+
+/* --- Mobile Scroll Lock --- */
+body.lock-scroll {
+  overflow: hidden !important;
+  touch-action: none;
+}
+

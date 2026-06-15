@@ -24,6 +24,15 @@ export const metadata: Metadata = {
   },
   description: "Premium handcrafted equestrian gear. Full-grain leather bridles, halters & tack. Indian craftsmanship, shipped worldwide.",
   metadataBase: new URL("https://cantercompany.com"),
+  icons: {
+    icon: [
+      { url: "/images/logo.jpeg", sizes: "any" },
+      { url: "/images/logo.jpeg", type: "image/jpeg", sizes: "32x32" },
+    ],
+    apple: [
+      { url: "/images/logo.jpeg", sizes: "180x180", type: "image/jpeg" },
+    ],
+  },
   openGraph: {
     title: "Canter Equestrians — Crafted for the Ride",
     description: "Premium handcrafted equestrian gear. Full-grain leather bridles, halters & tack. Indian craftsmanship, shipped worldwide.",

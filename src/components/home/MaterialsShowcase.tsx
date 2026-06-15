@@ -1,12 +1,15 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { MATERIALS } from '@/lib/constants';
 import { SectionHeading } from '../ui/SectionHeading';
+import { cn } from '@/lib/utils';
 import styles from './MaterialsShowcase.module.css';
 
 export const MaterialsShowcase: React.FC = () => {
+  const [activeCard, setActiveCard] = useState<number | null>(null);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -45,8 +48,14 @@ export const MaterialsShowcase: React.FC = () => {
           {MATERIALS.map((material, index) => (
             <motion.div
               key={index}
-              className={styles.cardContainer}
+              className={cn(
+                styles.cardContainer,
+                activeCard === index && styles.flipped
+              )}
               variants={cardVariants}
+              onClick={() => {
+                setActiveCard(activeCard === index ? null : index);
+              }}
             >
               <div className={styles.cardInner}>
                 {/* Front Side */}

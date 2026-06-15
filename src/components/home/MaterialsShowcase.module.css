@@ -40,7 +40,8 @@
   transform-style: preserve-3d;
 }
 
-.cardContainer:hover .cardInner {
+.cardContainer:hover .cardInner,
+.cardContainer.flipped .cardInner {
   transform: rotateY(180deg);
 }
 
